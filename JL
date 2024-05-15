@@ -1,0 +1,31 @@
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+public class ControlesPane extends VBox {
+    private Button btnIniciar;
+    private Button btnFechar;
+    private Button btnReiniciar;
+
+    public ControlesPane() {
+        btnIniciar = new Button("Iniciar Jogo");
+        btnFechar = new Button("Fechar Jogo");
+        btnReiniciar = new Button("Reiniciar Jogo");
+
+        HBox hbox = new HBox(btnIniciar, btnFechar, btnReiniciar);
+        hbox.setSpacing(10);
+        getChildren().add(hbox);
+    }
+
+    public Button getBtnIniciar() {
+        return btnIniciar;
+    }
+
+    public Button getBtnFechar() {
+        return btnFechar;
+    }
+
+    public Button getBtnReiniciar() {
+        return btnReiniciar;
+    }
+}
