@@ -1,0 +1,41 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class JogoDaForcaGUI extends Application {
+    private ForcaPane forcaPane;
+    private ControlesPane controlesPane;
+
+    @Override
+    public void start(Stage primaryStage) {
+        forcaPane = new ForcaPane();
+        controlesPane = new ControlesPane();
+
+        controlesPane.getBtnIniciar().setOnAction(event -> iniciarJogo());
+        controlesPane.getBtnFechar().setOnAction(event -> fecharJogo());
+        controlesPane.getBtnReiniciar().setOnAction(event -> reiniciarJogo());
+
+        VBox root = new VBox(forcaPane, controlesPane);
+        Scene scene = new Scene(root, 400, 300);
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Jogo da Forca");
+        primaryStage.show();
+    }
+
+    private void iniciarJogo() {
+        // Lógica para iniciar o jogo aqui
+    }
+
+    private void fecharJogo() {
+        // Lógica para fechar o jogo aqui
+    }
+
+    private void reiniciarJogo() {
+        // Lógica para reiniciar o jogo aqui
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
