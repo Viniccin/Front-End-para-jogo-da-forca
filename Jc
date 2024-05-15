@@ -1,0 +1,49 @@
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+
+public class ForcaPane extends Pane {
+    private Canvas canvas;
+    private GraphicsContext gc;
+    private int tentativas;
+
+    public ForcaPane() {
+        canvas = new Canvas(200, 200);
+        gc = canvas.getGraphicsContext2D();
+        tentativas = 0;
+        desenharForca();
+        getChildren().add(canvas);
+    }
+
+    public void aumentarTentativas() {
+        tentativas++;
+        desenharForca();
+    }
+
+    private void desenharForca() {
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        gc.setStroke(Color.BLACK);
+        gc.setLineWidth(2);
+
+        // Desenhar a forca base
+        gc.strokeLine(50, 200, 150, 200);
+        gc.strokeLine(100, 200, 100, 50);
+        gc.strokeLine(100, 50, 150, 50);
+        gc.strokeLine(150, 50, 150, 100);
+
+        // Desenhar partes da forca conforme as tentativas
+        switch (tentativas) {
+            case 1:
+                // Desenhar cabeça
+                gc.strokeOval(135, 100, 30, 30);
+                break;
+            case 2:
+                // Desenhar corpo
+                gc.strokeLine(150, 130, 150, 160);
+                break;
+            // Adicionar mais casos para desenhar outras partes da forca
+            // conforme as tentativas aumentam
+        }
+    }
+}
